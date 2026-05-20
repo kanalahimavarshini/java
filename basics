@@ -191,3 +191,23 @@ public class Main {
         System.out.println("Element Not Found");
     }
 }
+class Student {
+    int id;
+    String name;
+
+    Student(int i, String n) {
+        id = i;
+        name = n;
+    }
+
+    void display() {
+        System.out.println(id + " " + name);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student(101, "John");
+        s1.display();
+    }
+}
