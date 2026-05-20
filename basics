@@ -248,3 +248,21 @@ public class Main {
         System.out.println(m.add(5.5, 2.5));
     }
 }
+class Parent {
+    void show() {
+        System.out.println("Parent Method");
+    }
+}
+
+class Child extends Parent {
+    void show() {
+        System.out.println("Child Method");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child c = new Child();
+        c.show();
+    }
+}
