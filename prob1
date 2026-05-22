@@ -247,3 +247,12 @@ public class Main {
         System.out.println("Word Count = " + words.length);
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        String str = "Java Programming Language";
+
+        str = str.replaceAll("\\s", "");
+
+        System.out.println(str);
+    }
+}
