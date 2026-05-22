@@ -238,3 +238,12 @@ public class Main {
         System.out.println("Smallest = " + min);
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        String str = "Java programming language";
+
+        String words[] = str.split(" ");
+
+        System.out.println("Word Count = " + words.length);
+    }
+}
