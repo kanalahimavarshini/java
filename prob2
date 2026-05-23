@@ -39,3 +39,13 @@ public class Main {
         }
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        String str = "abc123";
+
+        if(str.matches("[a-z]+\\d+"))
+            System.out.println("Matched");
+        else
+            System.out.println("Not Matched");
+    }
+}
