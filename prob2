@@ -164,3 +164,42 @@ public class Main {
         System.out.println(Arrays.toString(arr));
     }
 }
+public class Main {
+    int[] queue = new int[5];
+    int front = -1, rear = -1;
+
+    void enqueue(int value) {
+        if((rear + 1) % queue.length == front) {
+            System.out.println("Queue Full");
+            return;
+        }
+
+        if(front == -1)
+            front = 0;
+
+        rear = (rear + 1) % queue.length;
+        queue[rear] = value;
+    }
+
+    void dequeue() {
+        if(front == -1) {
+            System.out.println("Queue Empty");
+            return;
+        }
+
+        System.out.println("Removed: " + queue[front]);
+
+        if(front == rear)
+            front = rear = -1;
+        else
+            front = (front + 1) % queue.length;
+    }
+
+    public static void main(String[] args) {
+        Main q = new Main();
+
+        q.enqueue(10);
+        q.enqueue(20);
+        q.dequeue();
+    }
+}
