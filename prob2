@@ -293,3 +293,13 @@ public class Main {
         System.out.println(count);
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        String str = "banana";
+        char ch = 'a';
+
+        str = str.replace(Character.toString(ch), "");
+
+        System.out.println(str);
+    }
+}
