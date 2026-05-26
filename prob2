@@ -450,3 +450,18 @@ public class Main {
         System.out.println(Arrays.toString(arr));
     }
 }
+import java.util.LinkedHashSet;
+
+public class Main {
+    public static void main(String[] args) {
+        String str = "programming";
+        LinkedHashSet<Character> set = new LinkedHashSet<>();
+
+        for(char ch : str.toCharArray()) {
+            set.add(ch);
+        }
+
+        for(char ch : set)
+            System.out.print(ch);
+    }
+}
