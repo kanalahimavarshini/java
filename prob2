@@ -539,3 +539,27 @@ public class Main {
         System.out.println(sum - arrSum);
     }
 }
+import java.util.*;
+
+class Student {
+    int age;
+
+    Student(int age) {
+        this.age = age;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Student> list = new ArrayList<>();
+
+        list.add(new Student(22));
+        list.add(new Student(18));
+        list.add(new Student(25));
+
+        Collections.sort(list, (a, b) -> a.age - b.age);
+
+        for(Student s : list)
+            System.out.print(s.age + " ");
+    }
+}
