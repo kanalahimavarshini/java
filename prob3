@@ -147,3 +147,17 @@ public class Main {
         System.out.println(now);
     }
 }
+interface Sayable {
+    void say();
+}
+
+public class Main {
+    static void hello() {
+        System.out.println("Hello");
+    }
+
+    public static void main(String[] args) {
+        Sayable s = Main::hello;
+        s.say();
+    }
+}
