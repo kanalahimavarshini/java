@@ -138,3 +138,12 @@ public class Main {
         System.out.println(Arrays.toString(arr));
     }
 }
+import java.time.LocalDateTime;
+
+public class Main {
+    public static void main(String[] args) {
+        LocalDateTime now = LocalDateTime.now();
+
+        System.out.println(now);
+    }
+}
