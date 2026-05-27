@@ -72,3 +72,10 @@ public class Main {
         }
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        int num = 83;
+
+        System.out.println(Integer.toOctalString(num));
+    }
+}
