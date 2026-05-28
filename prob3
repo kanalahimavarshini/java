@@ -355,3 +355,16 @@ public class Main {
         System.out.println(prefix);
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        int base = 2, exp = 5;
+        long result = 1;
+
+        while(exp > 0) {
+            result *= base;
+            exp--;
+        }
+
+        System.out.println(result);
+    }
+}
