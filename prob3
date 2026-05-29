@@ -560,3 +560,24 @@ public class Main {
         }
     }
 }
+import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] a = {1,2,3};
+        int[] b = {2,3,4};
+
+        HashSet<Integer> set1 = new HashSet<>();
+        HashSet<Integer> result = new HashSet<>();
+
+        for(int num : a)
+            set1.add(num);
+
+        for(int num : b) {
+            if(set1.contains(num))
+                result.add(num);
+        }
+
+        System.out.println(result);
+    }
+}
