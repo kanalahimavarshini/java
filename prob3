@@ -596,3 +596,47 @@ public class Main {
         System.out.println(sum == product ? "Spy" : "Not Spy");
     }
 }
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+    }
+}
+
+public class Main {
+    Node head;
+
+    void reverse() {
+        Node prev = null, current = head, next;
+
+        while(current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        head = prev;
+    }
+
+    void display() {
+        Node temp = head;
+        while(temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        Main list = new Main();
+
+        list.head = new Node(1);
+        list.head.next = new Node(2);
+        list.head.next.next = new Node(3);
+
+        list.reverse();
+        list.display();
+    }
+}
