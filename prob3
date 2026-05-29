@@ -581,3 +581,18 @@ public class Main {
         System.out.println(result);
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        int num = 123;
+        int sum = 0, product = 1;
+
+        while(num > 0) {
+            int digit = num % 10;
+            sum += digit;
+            product *= digit;
+            num /= 10;
+        }
+
+        System.out.println(sum == product ? "Spy" : "Not Spy");
+    }
+}
