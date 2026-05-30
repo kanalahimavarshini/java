@@ -96,3 +96,23 @@ public class Main {
         new Demo().show().display();
     }
 }
+class Student {
+    int id;
+
+    Student(int id) {
+        this.id = id;
+    }
+
+    Student(Student s) {
+        this.id = s.id;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Student s1 = new Student(101);
+        Student s2 = new Student(s1);
+
+        System.out.println(s2.id);
+    }
+}
