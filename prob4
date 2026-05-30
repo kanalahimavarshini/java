@@ -78,3 +78,21 @@ public class Main {
         System.out.println(Counter.count);
     }
 }
+class Demo {
+
+    Demo show() {
+        System.out.println("Show");
+        return this;
+    }
+
+    Demo display() {
+        System.out.println("Display");
+        return this;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        new Demo().show().display();
+    }
+}
