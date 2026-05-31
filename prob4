@@ -193,3 +193,20 @@ public class Main {
         System.out.println(result);
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        String text = "KHOOR";
+        int shift = 3;
+        String result = "";
+
+        for(char ch : text.toCharArray()) {
+            if(Character.isLetter(ch)) {
+                char base = Character.isUpperCase(ch) ? 'A' : 'a';
+                ch = (char)((ch - base - shift + 26) % 26 + base);
+            }
+            result += ch;
+        }
+
+        System.out.println(result);
+    }
+}
