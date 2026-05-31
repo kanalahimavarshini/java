@@ -278,3 +278,26 @@ public class Main {
         System.out.println(circular);
     }
 }
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        LinkedHashMap<Integer, String> cache =
+            new LinkedHashMap<>(3, 0.75f, true);
+
+        cache.put(1, "A");
+        cache.put(2, "B");
+        cache.put(3, "C");
+
+        cache.get(1);
+        cache.put(4, "D");
+
+        if(cache.size() > 3) {
+            Integer first = cache.keySet().iterator().next();
+            cache.remove(first);
+        }
+
+        System.out.println(cache);
+    }
+}
