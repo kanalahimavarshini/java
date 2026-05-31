@@ -176,3 +176,20 @@ public class Main {
         }
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        String text = "HELLO";
+        int shift = 3;
+        String result = "";
+
+        for(char ch : text.toCharArray()) {
+            if(Character.isLetter(ch)) {
+                char base = Character.isUpperCase(ch) ? 'A' : 'a';
+                ch = (char)((ch - base + shift) % 26 + base);
+            }
+            result += ch;
+        }
+
+        System.out.println(result);
+    }
+}
