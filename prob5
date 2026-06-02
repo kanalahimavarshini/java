@@ -256,3 +256,13 @@ public class Main {
         System.out.println(str);
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        char ch = 'e';
+
+        if("aeiouAEIOU".indexOf(ch) != -1)
+            System.out.println("Vowel");
+        else
+            System.out.println("Consonant");
+    }
+}
