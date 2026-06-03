@@ -499,3 +499,17 @@ public class Main {
         System.out.println(median);
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        String password = "Java@123";
+
+        boolean strong =
+                password.length() >= 8 &&
+                password.matches(".*[A-Z].*") &&
+                password.matches(".*[a-z].*") &&
+                password.matches(".*\\d.*") &&
+                password.matches(".*[@#$%^&+=!].*");
+
+        System.out.println(strong);
+    }
+}
