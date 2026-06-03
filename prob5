@@ -420,3 +420,10 @@ public class Main {
         System.out.println(sum == num ? "Perfect" : "Not Perfect");
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        int num = 25;
+
+        System.out.println(Integer.toBinaryString(num));
+    }
+}
