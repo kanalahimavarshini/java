@@ -427,3 +427,21 @@ public class Main {
         System.out.println(Integer.toBinaryString(num));
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        String binary = "11001";
+
+        int decimal = Integer.parseInt(binary, 2);
+
+        System.out.println(decimal);
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        int a = 20, b = 35, c = 15;
+
+        int largest = Math.max(a, Math.max(b, c));
+
+        System.out.println(largest);
+    }
+}
