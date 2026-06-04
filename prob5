@@ -624,3 +624,10 @@ public class Main {
         System.out.println(ans);
     }
 }
+public class Main {
+    public static void main(String[] args) {
+        int n = 255;
+
+        System.out.println(Integer.toHexString(n));
+    }
+}
