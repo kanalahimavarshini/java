@@ -568,3 +568,25 @@ public class Main {
         System.out.println(q.dequeue());
     }
 }
+public class Main {
+
+    static int binarySearch(int[] arr, int l, int r, int key) {
+        if(l > r) return -1;
+
+        int mid = (l + r) / 2;
+
+        if(arr[mid] == key)
+            return mid;
+
+        if(arr[mid] > key)
+            return binarySearch(arr, l, mid - 1, key);
+
+        return binarySearch(arr, mid + 1, r, key);
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,4,5};
+
+        System.out.println(binarySearch(arr, 0, arr.length - 1, 4));
+    }
+}
