@@ -547,3 +547,24 @@ public class Main {
         System.out.println(s.pop());
     }
 }
+class Queue {
+    int[] arr = new int[5];
+    int front = 0, rear = -1;
+
+    void enqueue(int x) {
+        arr[++rear] = x;
+    }
+
+    int dequeue() {
+        return arr[front++];
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Queue q = new Queue();
+        q.enqueue(10);
+        q.enqueue(20);
+        System.out.println(q.dequeue());
+    }
+}
