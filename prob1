@@ -846,3 +846,27 @@ public class Main {
         }
     }
 }
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int[] nums = {10,9,2,5,3,7,101,18};
+
+        ArrayList<Integer> lis = new ArrayList<>();
+
+        for(int x:nums){
+            int pos = Collections.binarySearch(lis,x);
+
+            if(pos<0)
+                pos = -(pos+1);
+
+            if(pos==lis.size())
+                lis.add(x);
+            else
+                lis.set(pos,x);
+        }
+
+        System.out.println(lis.size());
+    }
+}
