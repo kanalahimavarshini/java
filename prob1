@@ -773,3 +773,48 @@ class Trie {
         return cur.end;
     }
 }
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int V = 6;
+
+        List<Integer>[] g = new ArrayList[V];
+
+        for (int i = 0; i < V; i++)
+            g[i] = new ArrayList<>();
+
+        g[5].add(2);
+        g[5].add(0);
+        g[4].add(0);
+        g[4].add(1);
+        g[2].add(3);
+        g[3].add(1);
+
+        int[] indeg = new int[V];
+
+        for (int i = 0; i < V; i++)
+            for (int v : g[i])
+                indeg[v]++;
+
+        Queue<Integer> q = new LinkedList<>();
+
+        for (int i = 0; i < V; i++)
+            if (indeg[i] == 0)
+                q.offer(i);
+
+        while (!q.isEmpty()) {
+            int u = q.poll();
+
+            System.out.print(u + " ");
+
+            for (int v : g[u]) {
+                indeg[v]--;
+
+                if (indeg[v] == 0)
+                    q.offer(v);
+            }
+        }
+    }
+}
