@@ -599,3 +599,37 @@ class LRUCache {
         map.put(key,value);
     }
 }
+public class Main {
+
+    static boolean possible(int[] arr, int k, int maxSum) {
+        int parts = 1, sum = 0;
+
+        for (int x : arr) {
+            if (sum + x > maxSum) {
+                parts++;
+                sum = x;
+            } else
+                sum += x;
+        }
+
+        return parts <= k;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {7,2,5,10,8};
+        int k = 2;
+
+        int low = 10, high = 32;
+
+        while (low < high) {
+            int mid = (low + high) / 2;
+
+            if (possible(arr, k, mid))
+                high = mid;
+            else
+                low = mid + 1;
+        }
+
+        System.out.println(low);
+    }
+}
