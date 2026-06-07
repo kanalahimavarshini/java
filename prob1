@@ -693,3 +693,45 @@ class SegmentTree {
                 + query(2 * node + 1, mid + 1, r, ql, qr);
     }
 }
+public class Main {
+
+    static void kmp(String text, String pat) {
+        int m = pat.length();
+
+        int[] lps = new int[m];
+
+        for (int i = 1, len = 0; i < m;) {
+            if (pat.charAt(i) == pat.charAt(len))
+                lps[i++] = ++len;
+            else if (len > 0)
+                len = lps[len - 1];
+            else
+                lps[i++] = 0;
+        }
+
+        int i = 0, j = 0;
+
+        while (i < text.length()) {
+            if (text.charAt(i) == pat.charAt(j)) {
+                i++;
+                j++;
+            }
+
+            if (j == m) {
+                System.out.println("Found at " + (i - j));
+                j = lps[j - 1];
+            } else if (i < text.length()
+                    && text.charAt(i) != pat.charAt(j)) {
+
+                if (j > 0)
+                    j = lps[j - 1];
+                else
+                    i++;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        kmp("ABABDABACDABABCABAB", "ABABCABAB");
+    }
+}
