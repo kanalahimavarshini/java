@@ -574,3 +574,28 @@ public class Main {
         System.out.println(second);
     }
 }
+import java.util.*;
+
+class LRUCache {
+    int capacity;
+    LinkedHashMap<Integer,Integer> map;
+
+    LRUCache(int capacity) {
+        this.capacity = capacity;
+
+        map = new LinkedHashMap<>(capacity,0.75f,true){
+            protected boolean removeEldestEntry(
+                    Map.Entry<Integer,Integer> e){
+                return size()>capacity;
+            }
+        };
+    }
+
+    int get(int key){
+        return map.getOrDefault(key,-1);
+    }
+
+    void put(int key,int value){
+        map.put(key,value);
+    }
+}
