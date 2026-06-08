@@ -393,3 +393,66 @@ class Solution {
                 : s.substring(start, start + minLen);
     }
 }
+class LFUCache {
+
+    private int capacity, minFreq;
+
+    Map<Integer, Integer> valueMap = new HashMap<>();
+    Map<Integer, Integer> freqMap = new HashMap<>();
+
+    Map<Integer, LinkedHashSet<Integer>> lists =
+            new HashMap<>();
+
+    public LFUCache(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public int get(int key) {
+        if (!valueMap.containsKey(key))
+            return -1;
+
+        int freq = freqMap.get(key);
+
+        freqMap.put(key, freq + 1);
+
+        lists.get(freq).remove(key);
+
+        if (freq == minFreq &&
+                lists.get(freq).isEmpty())
+            minFreq++;
+
+        lists.computeIfAbsent(freq + 1,
+                k -> new LinkedHashSet<>()).add(key);
+
+        return valueMap.get(key);
+    }
+
+    public void put(int key, int value) {
+
+        if (capacity <= 0)
+            return;
+
+        if (valueMap.containsKey(key)) {
+            valueMap.put(key, value);
+            get(key);
+            return;
+        }
+
+        if (valueMap.size() >= capacity) {
+            int evict =
+                    lists.get(minFreq).iterator().next();
+
+            lists.get(minFreq).remove(evict);
+            valueMap.remove(evict);
+            freqMap.remove(evict);
+        }
+
+        valueMap.put(key, value);
+        freqMap.put(key, 1);
+
+        minFreq = 1;
+
+        lists.computeIfAbsent(1,
+                k -> new LinkedHashSet<>()).add(key);
+    }
+}
