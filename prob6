@@ -570,3 +570,60 @@ class Solution {
         return 0;
     }
 }
+class Solution {
+
+    private int time = 0;
+
+    public List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
+
+        List<Integer>[] graph = new ArrayList[n];
+
+        for (int i = 0; i < n; i++)
+            graph[i] = new ArrayList<>();
+
+        for (List<Integer> edge : connections) {
+            int u = edge.get(0);
+            int v = edge.get(1);
+
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+        int[] disc = new int[n];
+        int[] low = new int[n];
+
+        List<List<Integer>> ans = new ArrayList<>();
+
+        dfs(0, -1, graph, disc, low, ans);
+
+        return ans;
+    }
+
+    private void dfs(int node, int parent,
+                     List<Integer>[] graph,
+                     int[] disc,
+                     int[] low,
+                     List<List<Integer>> ans) {
+
+        disc[node] = low[node] = ++time;
+
+        for (int next : graph[node]) {
+
+            if (next == parent)
+                continue;
+
+            if (disc[next] == 0) {
+
+                dfs(next, node, graph, disc, low, ans);
+
+                low[node] = Math.min(low[node], low[next]);
+
+                if (low[next] > disc[node])
+                    ans.add(Arrays.asList(node, next));
+
+            } else {
+                low[node] = Math.min(low[node], disc[next]);
+            }
+        }
+    }
+}
