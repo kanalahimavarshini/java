@@ -265,3 +265,34 @@ class Solution {
         return sb.length() == indeg.size() ? sb.toString() : "";
     }
 }
+public class Codec {
+
+    public String serialize(TreeNode root) {
+        if (root == null) return "null";
+
+        return root.val + "," +
+                serialize(root.left) + "," +
+                serialize(root.right);
+    }
+
+    public TreeNode deserialize(String data) {
+        Queue<String> q =
+                new LinkedList<>(Arrays.asList(data.split(",")));
+
+        return build(q);
+    }
+
+    private TreeNode build(Queue<String> q) {
+        String s = q.poll();
+
+        if (s.equals("null"))
+            return null;
+
+        TreeNode node = new TreeNode(Integer.parseInt(s));
+
+        node.left = build(q);
+        node.right = build(q);
+
+        return node;
+    }
+}
